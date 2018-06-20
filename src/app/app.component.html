@@ -12,12 +12,23 @@
             {{o}}
           </li> 
         </div>
-        <div *ngIf="!onlyOdd">
+        <!-- <div *ngIf="!onlyOdd">
 
             <li class="list-group-item" *ngFor="let e of evenNumbers" [ngClass]="{'odd' : e % 2 !== 0}" [ngStyle]="{'background-color': (e%2 !==0) ? 'yellow' : 'transparent'}">
               {{e}}
             </li> 
-          </div>
+          </div> -->
+          <ng-template [ngIf]='!onlyOdd'>
+
+            <div>
+              
+              <li class="list-group-item" *ngFor="let e of evenNumbers" [ngClass]="{'odd' : e % 2 !== 0}" [ngStyle]="{'background-color': (e%2 !==0) ? 'yellow' : 'transparent'}">
+                {{e}}
+              </li> 
+            </div>
+          </ng-template>
+
+
       </ul>
       <p basicHighlight >style me With Basic Highlight Directive</p>
       <p BetterHighlight [defaultColor]="'yellow'" [betterHighlight]="'red'"> Stle me with better highlight directive</p>
