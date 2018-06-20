@@ -18,7 +18,7 @@
               {{e}}
             </li> 
           </div> -->
-          <ng-template [ngIf]='!onlyOdd'>
+          <!-- <ng-template [ngIf]='!onlyOdd'>
 
             <div>
               
@@ -26,7 +26,14 @@
                 {{e}}
               </li> 
             </div>
-          </ng-template>
+          </ng-template> -->
+
+          <div *unless="onlyOdd">
+
+              <li class="list-group-item" *ngFor="let e of evenNumbers" [ngClass]="{'odd' : e % 2 !== 0}" [ngStyle]="{'background-color': (e%2 !==0) ? 'yellow' : 'transparent'}">
+                {{e}}
+              </li> 
+            </div>
 
 
       </ul>
